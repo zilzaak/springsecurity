@@ -23,6 +23,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		auth.jdbcAuthentication().dataSource(dataSource)
 		.withDefaultSchema();
 		
+		// or we can use from original database by using 
+		/*
+		
+				auth.jdbcAuthentication().dataSource(dataSource).
+		usersByUsernameQuery("select username,password,enabled"
+				+"from users"+"where username=?").
+		authoritiesByUsernameQuery("select username , authority "+"from authorities"+"where username=?");
+		*/
+		
 	}
 	
 	@Override
